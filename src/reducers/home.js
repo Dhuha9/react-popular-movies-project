@@ -1,4 +1,5 @@
 import {
+  FETCH_MOVIES,
   FETCH_MOVIES_SUCCESS,
   FETCH_MOVIES_FAILURE,
   SEARCH_MOVIE,
@@ -18,6 +19,7 @@ const settings = JSON.parse(window.localStorage.getItem("settings")) || {};
 
 const initState = {
   movies: [],
+  moviesLoading: false,
   searchResults: [],
   isSearching: false,
   searchError: null,
@@ -32,10 +34,23 @@ const initState = {
 
 export default (state = initState, action) => {
   switch (action.type) {
+    case FETCH_MOVIES:
+      return {
+        ...state,
+        moviesLoading: true
+      };
     case FETCH_MOVIES_SUCCESS:
-      return { ...state, movies: action.data };
+      return {
+        ...state,
+        moviesLoading: false,
+        movies: action.data
+      };
     case FETCH_MOVIES_FAILURE:
-      return { ...state, error: action.error };
+      return {
+        ...state,
+        moviesLoading: false,
+        error: action.error
+      };
     case SEARCH_MOVIE:
       return {
         ...state,

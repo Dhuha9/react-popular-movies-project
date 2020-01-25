@@ -8,6 +8,9 @@ import thunk from "redux-thunk";
 
 import { localStorageMiddleware } from "./middleware";
 
+
+
+
 export const history = createBrowserHistory();
 
 // Build the middleware for intercepting and dispatching navigation actions

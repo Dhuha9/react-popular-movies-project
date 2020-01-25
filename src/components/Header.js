@@ -12,6 +12,7 @@ const Header = ({ appName, className }) => {
   const showSettings = e => {
     dispatch(toggleSettingsModal(true));
   };
+  
   return (
     <Navbar variant="dark" bg="dark" sticky="top" className={className}>
       <Logo appName={appName} />

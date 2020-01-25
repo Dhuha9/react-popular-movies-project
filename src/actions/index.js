@@ -223,7 +223,7 @@ export function fetchMoviesList() {
       default:
         url = URL_MOVIES_POPULAR;
     }
-
+console.log("url "+url)
     return fetchJson(url + API_KEY + lang)
       .then(json => dispatch(fetchMoviesSuccess(json.results)))
       .catch(error => dispatch(fetchMoviesFail(error.message)));
